@@ -90,10 +90,10 @@ const configSchema = Joi.object({
       'any.required': 'TOKEN_EXPIRY_SECONDS is required'
     }),
 
-  TOKEN_SALT: Joi.string().min(16).required()
+  TOKEN_PEPPER: Joi.string().min(16).required()
     .messages({
-      'string.min': 'TOKEN_SALT must be at least 16 characters for security',
-      'any.required': 'TOKEN_SALT is required for token hashing'
+      'string.min': 'TOKEN_PEPPER must be at least 16 characters for security',
+      'any.required': 'TOKEN_PEPPER is required for token hashing'
     }),
 
   // CORS Configuration
@@ -158,7 +158,7 @@ module.exports = {
   },
   token: {
     expirySeconds: config.TOKEN_EXPIRY_SECONDS,
-    salt: config.TOKEN_SALT,
+    pepper: config.TOKEN_PEPPER,
   },
   cors: {
     origin: config.CORS_ORIGIN === '*' ? '*' : config.CORS_ORIGIN.split(','),
