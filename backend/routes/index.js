@@ -25,7 +25,7 @@ const registerRoutes = async (fastify) => {
   fastify.get('/ready', healthRoutes.readinessCheck);
 
   // Example: Register other route modules here
-  // fastify.register(require('./api'), { prefix: '/api/v1' });
+  fastify.register(require('./token'), { prefix: '/api/v1/tokens' });
 };
 
 module.exports = registerRoutes;
